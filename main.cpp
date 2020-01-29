@@ -4,39 +4,37 @@ using namespace std;
 
 int main()
 {
-    int tomb1[1000];
-    int tomb2[1000];
-    int i, n, m ,S=0;
+    int v[100];
+    int n,i,j,aux;
     cout << "n=";
     cin >> n;
-
-    for(i=0 ; i<n ; i++)
-    {
-        cout << "tomb1[" << i << "]=";
-        cin >> tomb1[i];
+    for(i=0 ; i<n ; i++){
+     cout << "v[" << i << "]=";
+     cin >> v[i];}
+    for(i=0 ; i < n ; i++){
+        cout << v[i] << " ";
     }
-    cout << "m=";
-    cin >> m;
+    cout << endl;
+    for (i=0; i< n-1; i++)
+    {
+        for (j=i+1; j< n; j++)
+        {
 
-    for(i=0 ; i<m ; i++)
-    {
-        cout << "tomb2[" << i << "]=";
-        cin >> tomb2[i];}
-    for(i=0 ; i<n ; i++)
-    {
-    if(tomb1[i]==tomb2[i]){
-        S+=tomb2[i];
+
+            if ( v[i]> v[j])
+            {
+                aux= v[j];
+                v[j]= v[i];
+                v[i]=aux;
+
+            }
+
+        }
+
     }
-
-
-   // }
-   //int d=0;
-   //while(S>0){
-   //     e=S%10;
-   //     S=S/10;
-   //     d=d*10 + e;
-    //}
-    cout << S;
+    for(i=0 ; i<n ; i++){
+        cout << v[i] << " ";
+    }
 
     return 0;
-}}
+}
